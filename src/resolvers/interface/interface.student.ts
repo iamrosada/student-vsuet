@@ -4,6 +4,18 @@ export interface StudentCreateInput {
   IdStudent: string;
   firstName: string;
   lastName: string;
+
+  ageStart: string;
+  ageFinish: string;
+  country: string;
+  language: string[];
+  whereLive: string;
+  fullNameInLatin: string;
+  diplomIsRed: boolean;
+
+  whereDidThePreparatory: string;
+  group: string;
+  course: string[];
 }
 export interface StudentLoginInput {
   IdStudent?: string;
@@ -17,6 +29,18 @@ export interface StudentUpdateInput {
   IdStudent: string;
   firstName: string;
   lastName: string;
+
+  ageStart: string;
+  ageFinish: string;
+  country: string;
+  language: string[];
+  whereLive: string;
+  fullNameInLatin: string;
+  diplomIsRed: boolean;
+
+  whereDidThePreparatory: string;
+  group: string;
+  course: string[];
 }
 export interface StudentDeleteInput {
   id: number;
