@@ -1,0 +1,37 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server",
+    "dev_": "ts-node-dev --no-notify --respawn --transpile-only src/server",
+    "dev": "nodemon  src/server.ts  --exec ts-node-dev "
+  },
+  "keywords": [],
+  "author": "Luis De Agua Rosada",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-tools/schema": "^9.0.10",
+    "@prisma/client": "^4.7.1",
+    "apollo-server": "^3.11.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "graphql-middleware": "^6.1.33",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.10",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.7.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}
