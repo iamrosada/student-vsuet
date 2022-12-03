@@ -4,7 +4,6 @@ export interface StudentCreateInput {
   IdStudent: string;
   firstName: string;
   lastName: string;
-  password: string;
 }
 export interface StudentLoginInput {
   IdStudent?: string;
@@ -12,7 +11,6 @@ export interface StudentLoginInput {
 }
 
 export interface StudentUpdateInput {
-  password: string;
   id: number;
   email: string;
   telephone: string;

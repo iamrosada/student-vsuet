@@ -19,7 +19,6 @@ export const resolvers = {
         where: { IdStudent: args.data.IdStudent },
       });
       if (student === null) {
-        const hashedPassword = await hash(args.data.password, 12);
         try {
           const studentFound = await context.prisma.student.create({
             data: {
@@ -27,7 +26,6 @@ export const resolvers = {
               email: args.data?.email,
               firstName: args.data.firstName,
               lastName: args.data.lastName,
-              password: hashedPassword,
               telephone: args.data.telephone,
             },
           });
