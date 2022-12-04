@@ -9,11 +9,26 @@ datasource db {
 }
 
 model Student {
-  id        Int    @id @default(autoincrement())
-  email     String @unique
-  telephone String @unique
-  IdStudent String @unique
-  firstName String
-  lastName  String
-  password  String
+  id              Int     @id @default(autoincrement())
+  email           String  @unique
+  telephone       String  @unique
+  IdStudent       String  @unique
+  firstName       String
+  lastName        String
+  ageStart        String
+  ageFinish       String
+  country         String
+  language        String
+  whereLive       String
+  fullNameInLatin String
+  diplomIsRed     Boolean
+
+  whereDidThePreparatory String
+  group                  String
+  course                 String
+}
+
+model Languange {
+  id       Int    @id @default(autoincrement())
+  language String
 }
