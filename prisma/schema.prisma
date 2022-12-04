@@ -18,17 +18,27 @@ model Student {
   ageStart        String
   ageFinish       String
   country         String
-  language        String
   whereLive       String
   fullNameInLatin String
   diplomIsRed     Boolean
 
   whereDidThePreparatory String
   group                  String
-  course                 String
+  language               Languange[]
+
+  course Course[]
 }
 
 model Languange {
-  id       Int    @id @default(autoincrement())
-  language String
+  id         Int     @id @default(autoincrement())
+  language   String
+  languageId Int
+  speak      Student @relation(fields: [languageId], references: [id])
+}
+
+model Course {
+  id        Int     @id @default(autoincrement())
+  course    String
+  courseId  Int
+  formation Student @relation(fields: [courseId], references: [id])
 }
