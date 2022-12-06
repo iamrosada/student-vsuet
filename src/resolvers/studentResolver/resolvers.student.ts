@@ -1,4 +1,5 @@
 import { compare, hash } from "bcryptjs";
+import { argsToArgsConfig } from "graphql/type/definition";
 import { verify } from "jsonwebtoken";
 import { context, Context } from "../../context/context.global";
 import {
@@ -73,7 +74,7 @@ export const resolvers = {
           return false;
         }
       } else {
-        throw new Error("this student already exist");
+        throw new Error("этот студент уже существует");
       }
     },
     updateStudent: async (
@@ -110,6 +111,22 @@ export const resolvers = {
               otherLanguage: true,
             },
           },
+        },
+      });
+    },
+    findStudentByYearStartAndFinish: (
+      _parent: any,
+      args: { ageFinish: string; ageStart: string },
+      context: Context
+    ) => {
+      return context.prisma.student.findMany({
+        where: {
+          ageFinish: args.ageFinish,
+          ageStart: args.ageStart,
+        },
+        include: {
+          courses: true,
+          languages: true,
         },
       });
     },
