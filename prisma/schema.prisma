@@ -24,21 +24,25 @@ model Student {
 
   whereDidThePreparatory String
   group                  String
-  language               Languange[]
 
-  course Course[]
+  Languages Languange[]
+  Courses   Course[]
 }
 
 model Languange {
-  id         Int     @id @default(autoincrement())
-  language   String
-  languageId Int
-  speak      Student @relation(fields: [languageId], references: [id])
+  id             Int     @id @default(autoincrement())
+  language       String
+  languageId     Int
+  speak          Student @relation(fields: [languageId], references: [id])
+  nativeLanguage String
+  otherLanguage  String
 }
 
 model Course {
-  id        Int     @id @default(autoincrement())
-  course    String
-  courseId  Int
-  formation Student @relation(fields: [courseId], references: [id])
+  id            Int     @id @default(autoincrement())
+  course        String
+  courseId      Int
+  graduation    String
+  mastersDegree String
+  formation     Student @relation(fields: [courseId], references: [id])
 }
