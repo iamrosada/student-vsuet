@@ -25,6 +25,31 @@ export const resolvers = {
               firstName: args.data.firstName,
               lastName: args.data.lastName,
               telephone: args.data.telephone,
+
+              ageStart: args.data.ageStart,
+              ageFinish: args.data.ageFinish,
+              country: args.data.country,
+              whereLive: args.data.whereLive,
+              fullNameInLatin: args.data.fullNameInLatin,
+              diplomIsRed: args.data.diplomIsRed,
+
+              whereDidThePreparatory: args.data.whereDidThePreparatory,
+              group: args.data.group,
+
+              Courses: {
+                create: {
+                  course: args.data.course.course,
+                  graduation: args.data.course.graduation,
+                  mastersDegree: args.data.course.mastersDegree,
+                },
+              },
+              Languages: {
+                create: {
+                  language: args.data.language.language,
+                  nativeLanguage: args.data.language.nativeLanguage,
+                  otherLanguage: args.data.language.otherLanguage,
+                },
+              },
             },
           });
 
