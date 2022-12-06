@@ -1,5 +1,4 @@
 export interface LanguageCreateInput {
-  language: string;
   nativeLanguage: string;
   otherLanguage: string;
 }

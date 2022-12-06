@@ -25,13 +25,12 @@ model Student {
   whereDidThePreparatory String
   group                  String
 
-  Languages Languange[]
-  Courses   Course[]
+  languages Languange[]
+  courses   Course[]
 }
 
 model Languange {
   id             Int     @id @default(autoincrement())
-  language       String
   languageId     Int
   speak          Student @relation(fields: [languageId], references: [id])
   nativeLanguage String
@@ -40,7 +39,6 @@ model Languange {
 
 model Course {
   id            Int     @id @default(autoincrement())
-  course        String
   courseId      Int
   graduation    String
   mastersDegree String

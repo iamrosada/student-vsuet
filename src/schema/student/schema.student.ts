@@ -7,29 +7,25 @@ export const typeDefs = gql`
     updateStudent(data: StudentUpdateInput): Student
     deleteStudent(data: DeleteInput!): IsDeleted
 
-    createLanguage(data: CreateInputLanguage!): Language
-    createCourse(data: CreateInputCourse!): Course
+    createLanguage(data: CreateInputLanguage!): Student
+    createCourse(data: CreateInputCourse!): Student
   }
 
   type Language {
     id: Int
-    language: String
     nativeLanguage: String
     otherLanguage: String
   }
   input CreateInputLanguage {
-    language: String
     nativeLanguage: String
     otherLanguage: String
   }
   type Course {
     id: Int
-    course: String
     graduation: String
     mastersDegree: String
   }
   input CreateInputCourse {
-    course: String
     graduation: String
     mastersDegree: String
   }
@@ -52,8 +48,9 @@ export const typeDefs = gql`
 
     whereDidThePreparatory: String
     group: String
-    language: [Language]
-    course: [Course]
+
+    languages: [Language]
+    courses: [Course]
   }
 
   input StudentCreateInput {
@@ -70,10 +67,11 @@ export const typeDefs = gql`
     fullNameInLatin: String
     diplomIsRed: Boolean
 
-    language: CreateInputLanguage
     whereDidThePreparatory: String
     group: String
-    course: CreateInputCourse
+
+    languages: CreateInputLanguage
+    courses: CreateInputCourse
   }
   input StudentLoginInput {
     IdStudent: String!
@@ -91,14 +89,15 @@ export const typeDefs = gql`
     ageStart: String
     ageFinish: String
     country: String
-    language: [CreateInputLanguage]
     whereLive: String
     fullNameInLatin: String
     diplomIsRed: Boolean
 
     whereDidThePreparatory: String
     group: String
-    course: [CreateInputCourse]
+
+    languages: [CreateInputLanguage]
+    courses: [CreateInputCourse]
   }
   # type AuthPayload {
   #   token: String

@@ -36,23 +36,37 @@ export const resolvers = {
               whereDidThePreparatory: args.data.whereDidThePreparatory,
               group: args.data.group,
 
-              Courses: {
-                create: {
-                  course: args.data.course.course,
-                  graduation: args.data.course.graduation,
-                  mastersDegree: args.data.course.mastersDegree,
-                },
+              courses: {
+                create: [
+                  {
+                    graduation: args.data.courses.graduation,
+                    mastersDegree: args.data.courses.mastersDegree,
+                  },
+                ],
               },
-              Languages: {
-                create: {
-                  language: args.data.language.language,
-                  nativeLanguage: args.data.language.nativeLanguage,
-                  otherLanguage: args.data.language.otherLanguage,
-                },
+
+              languages: {
+                create: [
+                  {
+                    nativeLanguage: args.data.languages.nativeLanguage,
+                    otherLanguage: args.data.languages.otherLanguage,
+                  },
+                ],
               },
             },
+            include: {
+              courses: {
+                select: {
+                  courseId: true,
+                  formation: true,
+                  graduation: true,
+                  mastersDegree: true,
+                },
+              },
+              languages: true,
+            },
           });
-
+          console.log("studentFound", studentFound);
           return studentFound;
         } catch (err) {
           console.log(err);
@@ -87,7 +101,17 @@ export const resolvers = {
 
   Query: {
     allStudent: (_parent: any, _args: any, context: Context) => {
-      return context.prisma.student.findMany({});
+      return context.prisma.student.findMany({
+        include: {
+          courses: true,
+          languages: {
+            select: {
+              nativeLanguage: true,
+              otherLanguage: true,
+            },
+          },
+        },
+      });
     },
   },
 };

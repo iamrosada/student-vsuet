@@ -18,8 +18,8 @@ export interface StudentCreateInput {
   whereDidThePreparatory: string;
   group: string;
 
-  language: LanguageCreateInput;
-  course: CourseCreateInput;
+  languages: LanguageCreateInput;
+  courses: CourseCreateInput;
 }
 export interface StudentLoginInput {
   IdStudent?: string;
