@@ -108,6 +108,10 @@ export const typeDefs = gql`
 
   type Query {
     allStudent: [Student!]!
+    findStudentByYearStartAndFinish(
+      ageStart: String
+      ageFinish: String
+    ): [Student]!
   }
   type StudentDeleteInput {
     id: Int!
