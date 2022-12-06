@@ -1,3 +1,5 @@
+import { LanguageCreateInput } from "./interface.language";
+import { CourseCreateInput } from "./interface.course";
 export interface StudentCreateInput {
   email: string;
   telephone: string;
@@ -8,14 +10,16 @@ export interface StudentCreateInput {
   ageStart: string;
   ageFinish: string;
   country: string;
-  language: string[];
+
   whereLive: string;
   fullNameInLatin: string;
   diplomIsRed: boolean;
 
   whereDidThePreparatory: string;
   group: string;
-  course: string[];
+
+  language: LanguageCreateInput;
+  course: CourseCreateInput;
 }
 export interface StudentLoginInput {
   IdStudent?: string;
@@ -33,14 +37,14 @@ export interface StudentUpdateInput {
   ageStart: string;
   ageFinish: string;
   country: string;
-  language: string[];
   whereLive: string;
   fullNameInLatin: string;
   diplomIsRed: boolean;
 
   whereDidThePreparatory: string;
   group: string;
-  course: string[];
+  language: [LanguageCreateInput];
+  course: [CourseCreateInput];
 }
 export interface StudentDeleteInput {
   id: number;
