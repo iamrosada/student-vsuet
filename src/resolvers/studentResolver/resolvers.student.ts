@@ -130,5 +130,20 @@ export const resolvers = {
         },
       });
     },
+    findStudentByCountry: (
+      _parent: any,
+      args: { nameCountry: string },
+      context: Context
+    ) => {
+      return context.prisma.student.findMany({
+        where: {
+          country: args.nameCountry,
+        },
+        include: {
+          courses: true,
+          languages: true,
+        },
+      });
+    },
   },
 };
