@@ -112,6 +112,8 @@ export const typeDefs = gql`
       ageStart: String
       ageFinish: String
     ): [Student]!
+
+    findStudentByCountry(nameCountry: String): [Student]!
   }
   type StudentDeleteInput {
     id: Int!
