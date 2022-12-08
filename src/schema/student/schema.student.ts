@@ -29,7 +29,9 @@ export const typeDefs = gql`
     graduation: String
     mastersDegree: String
   }
-
+  type TotalStudent {
+    totalStudent: Int
+  }
   type Student {
     email: String
     id: Int
@@ -108,12 +110,17 @@ export const typeDefs = gql`
 
   type Query {
     allStudent: [Student!]!
+
     findStudentByYearStartAndFinish(
       ageStart: String
       ageFinish: String
     ): [Student]!
 
     findStudentByCountry(nameCountry: String): [Student]!
+
+    findHowManyStudentFromAnyCountry(nameCountry: String): TotalStudent
+
+    findStudentWithRedDiplome(nameCountry: String): [Student]!
   }
   type StudentDeleteInput {
     id: Int!
