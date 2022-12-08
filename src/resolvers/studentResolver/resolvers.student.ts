@@ -145,5 +145,34 @@ export const resolvers = {
         },
       });
     },
+    findHowManyStudentFromAnyCountry: async (
+      _parent: any,
+      args: { nameCountry: string },
+      context: Context
+    ) => {
+      const totalFound = await context.prisma.student.findMany({
+        where: {
+          country: args.nameCountry,
+        },
+        include: {
+          courses: true,
+          languages: true,
+        },
+      });
+      const totalStudent = totalFound.length;
+      return { totalStudent: totalStudent };
+    },
+    findStudentWithRedDiplome: (
+      _parent: any,
+      args: { nameCountry: string },
+      context: Context
+    ) => {
+      return context.prisma.student.findMany({
+        where: {
+          country: args.nameCountry,
+          diplomIsRed: true,
+        },
+      });
+    },
   },
 };
